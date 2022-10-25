@@ -26,6 +26,10 @@ namespace HPlusSport.API.Controllers
         public ActionResult GetProduct(int id)
         {
             var product = _context?.Products?.Find(id);
+            if (product is null)
+            {
+                return NotFound();
+            }
             return Ok(product);
         }
     }
